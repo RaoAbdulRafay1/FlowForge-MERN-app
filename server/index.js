@@ -4,7 +4,8 @@ const cors =require('cors')
 const mongoose = require('mongoose');
 const app = express();
 app.use(cors())
-
+app.use(express.json())
+app.use("/api/auth",require('./routes/auth'))
 const PORT = 4000;
 
 app.get('/',(req,res) =>{
@@ -21,4 +22,3 @@ app.get('/health',(req,res) =>
     res.json({message :"Server health is ok.Surver is  running fine"})
 }
 )
-
